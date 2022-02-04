@@ -1,5 +1,5 @@
 import dbConnect from '../../../lib/dbConnect'
-import Pet from '../../../models/Pet'
+import Meow from '../../../models/Meow'
 
 export default async function handler(req, res) {
   const { method } = req
