@@ -12,6 +12,8 @@ async function handler(req, res) {
 		case "GET":
 			res.status(200).send({ message: "User API is online" })
 			break
+		case "OPTIONS":
+			return res.status(200).send({message: "This was a response to a preflight request"})
 		case "POST":
 			try {
         
