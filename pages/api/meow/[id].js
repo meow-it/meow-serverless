@@ -1,13 +1,18 @@
+import micro from "micro-cors";
 import dbConnect from "../../../lib/dbConnect"
 import Meow from "../../../models/Meow"
 
-export default async function handler(req, res) {
+async function handler(req, res) {
 	const {
 		query: { id },
 		method,
 	} = req
 
 	await dbConnect()
+
+	if (method === 'OPTIONS') {
+        return res.status(200).send({message: "This was a response to a preflight request"})
+    }
 
 	if(method == "GET") {
 		try {
@@ -22,3 +27,7 @@ export default async function handler(req, res) {
 		res.status(400).json({ success: false, message: "Invalid request method 😒, Try sending with GET Method" })
 	}
 }
+
+const cors = micro();
+
+export default cors(handler);

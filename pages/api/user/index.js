@@ -1,8 +1,9 @@
+import micro from "micro-cors";
 import dbConnect from "../../../lib/dbConnect"
 import User from "../../../models/User"
 import animals from "../animals"
 
-export default async function handler(req, res) {
+async function handler(req, res) {
 	const { method } = req
 
 	await dbConnect()
@@ -30,3 +31,7 @@ export default async function handler(req, res) {
 			break
 	}
 }
+
+const cors = micro()
+
+export default cors(handler)
