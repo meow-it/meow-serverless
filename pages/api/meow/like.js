@@ -10,7 +10,7 @@ async function handler(req, res) {
         return res.status(200).send({message: "This was a response to a preflight request"})
     }
 
-    if(method != "POST") return res.status(400).json({ success: false, message: "Invalid request method, Try sending with POST Method" })
+    if(method != "PUT") return res.status(400).json({ success: false, message: "Invalid request method, Try sending with PUT Method" })
 
     await dbConnect()
 
@@ -28,7 +28,7 @@ async function handler(req, res) {
 
         like = req.body.like !== undefined ? req.body.like : like
 
-        res.sendStatus(202)
+        res.status(202).send({ message: "The Meow has been liked" })
 
         if(like == 1) {
             await Meow.findByIdAndUpdate(meowid, {

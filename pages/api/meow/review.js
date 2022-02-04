@@ -11,7 +11,7 @@ async function handler(req, res) {
         return res.status(200).send({message: "This was a response to a preflight request"})
     }
 
-    if(method != "POST") return res.status(400).json({ success: false, message: "Invalid request method, Try sending with POST Method" })
+    if(method != "PUT") return res.status(400).json({ success: false, message: "Invalid request method, Try sending with PUT Method" })
 
     await dbConnect()
 
