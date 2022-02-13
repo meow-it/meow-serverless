@@ -1,7 +1,7 @@
 import micro from "micro-cors";
 import dbConnect from "../../../lib/dbConnect"
 import User from "../../../models/User"
-import Comment from "../../../models/Comment";
+import Comment from "../../../models/Comment"
 import Meow from "../../../models/Meow"
 import { hasProfane } from "../functions"
 

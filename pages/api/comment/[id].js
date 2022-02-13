@@ -1,6 +1,5 @@
 import micro from "micro-cors";
 import dbConnect from "../../../lib/dbConnect"
-import Comment from "../../../models/Comment";
 import Meow from "../../../models/Meow"
 
 async function handler(req, res) {
